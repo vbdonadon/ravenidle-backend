@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// model Authors {
+//   id         String   @id @default(uuid())
+//   name       String
+//   username   String   @unique
+//   password   String
+//   created_at DateTime @default(now())
+
+//   @@map("authors")
+// }
+
+model Account {
+  id         String   @id @default(uuid())
+  username   String   @unique
+  password   String
+  name       String
+  created_at DateTime @default(now())
+
+  @@map("account")
+}
+
+// Personagem criado pelo usuário
+model Characters {
+  id         String   @id @default(uuid())
+  name       String
+  created_at DateTime @default(now())
+
+  @@map("characters")
+}
+
+// Witchcraft, Warfare, Wizardry, Protection, Shadow, Spiritual, Archery, Holy 
+model Archetype {
+  id   String @id @default(uuid())
+  name String @unique
+
+  @@map("archetypes")
+}
+
+model Attributes {
+  id    String @id @default(uuid())
+  name  String @unique
+  value String
+
+  @@map("attributes")
+}
+
+// Vida, Mana, Ataque, Defesa, Armadura, Resitência Mágica, Regeneração
+model Stats {
+  id    String @id @default(uuid())
+  name  String @unique
+  value String
+
+  @@map("stats")
+}
+
+model Skills {
+  id   String @id @default(uuid())
+  name String @unique
+
+  @@map("skills")
+}
+
+model Passives {
+  id   String @id @default(uuid())
+  name String
+
+  @@map("passives")
+}
