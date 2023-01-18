@@ -7,21 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// model Authors {
-//   id         String   @id @default(uuid())
-//   name       String
-//   username   String   @unique
-//   password   String
-//   created_at DateTime @default(now())
-
-//   @@map("authors")
-// }
-
 model Account {
   id         String   @id @default(uuid())
   username   String   @unique
   password   String
-  name       String
+  nickname   String   @unique
   created_at DateTime @default(now())
 
   @@map("account")
