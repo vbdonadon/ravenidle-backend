@@ -27,9 +27,12 @@ model Characters {
 }
 
 // Witchcraft, Warfare, Wizardry, Protection, Shadow, Spiritual, Archery, Holy 
-model Archetype {
-  id   String @id @default(uuid())
-  name String @unique
+model Archetypes {
+  id          String  @id @default(uuid())
+  name        String  @unique
+  description String?
+
+  skills Skills[]
 
   @@map("archetypes")
 }
@@ -37,30 +40,37 @@ model Archetype {
 model Attributes {
   id    String @id @default(uuid())
   name  String @unique
-  value String
+  value Int    @default(0)
 
   @@map("attributes")
 }
 
 // Vida, Mana, Ataque, Defesa, Armadura, Resitência Mágica, Regeneração
-model Stats {
+model Status {
   id    String @id @default(uuid())
   name  String @unique
-  value String
+  value Int    @default(0)
 
-  @@map("stats")
+  @@map("status")
 }
 
 model Skills {
-  id   String @id @default(uuid())
-  name String @unique
+  id          String  @id @default(uuid())
+  name        String  @unique
+  description String?
+  type        String?
+  enabled     Boolean @default(false)
+
+  id_archetype String
+  archetypes   Archetypes @relation(fields: [id_archetype], references: [id])
 
   @@map("skills")
 }
 
 model Passives {
-  id   String @id @default(uuid())
-  name String
+  id      String  @id @default(uuid())
+  name    String
+  enabled Boolean @default(false)
 
   @@map("passives")
 }

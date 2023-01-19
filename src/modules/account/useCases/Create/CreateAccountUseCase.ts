@@ -18,14 +18,10 @@ export class CreateAccountUseCase {
       }
     });
 
-    console.log('usernameAlreadyExist')
-    console.log(usernameAlreadyExist)
-
     if (usernameAlreadyExist.length) throw new Error('Username already exists!');
 
     const hashPassword = await hash(password, 10);
-
-    const account = await prisma.account.create({
+    const createAccount = await prisma.account.create({
       data: {
         username,
         password: hashPassword, 
@@ -33,6 +29,6 @@ export class CreateAccountUseCase {
       }
     });
 
-    return account;
+    return createAccount;
   }
 }
