@@ -58,19 +58,11 @@ model Skills {
   id          String  @id @default(uuid())
   name        String  @unique
   description String?
-  type        String?
+  type        String
   enabled     Boolean @default(false)
 
   id_archetype String
   archetypes   Archetypes @relation(fields: [id_archetype], references: [id])
 
   @@map("skills")
-}
-
-model Passives {
-  id      String  @id @default(uuid())
-  name    String
-  enabled Boolean @default(false)
-
-  @@map("passives")
 }

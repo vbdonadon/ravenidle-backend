@@ -1,7 +1,7 @@
 export default [
   {
     name: "Celerity",
-    type: "Passive",
+    type: "a",
     archetype: "Spiritual",
     description: "Reduz o tempo de recarga de todas as magias em 10%."
   },
