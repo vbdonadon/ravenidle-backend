@@ -1,6 +1,7 @@
 import { prisma } from "../src/database/prismaClient";
 
 import defaultArchetypes from "../src/modules/archetypes/mock";
+import defaultAttributes from "../src/modules/attributes/mock";
 import defaultSkills from "../src/modules/skills/mock";
 import defaultStatus from "../src/modules/status/mock";
 
@@ -69,6 +70,18 @@ async function SeedDatabase() {
       create: {
         name: status.name,
         value: status.value
+      }
+    })
+  })
+
+  defaultAttributes.map(async attribute => {
+    await prisma.attributes.upsert({
+      where: {
+        name: attribute.name
+      },
+      update: {},
+      create: {
+        name: attribute.name
       }
     })
   })

@@ -1,21 +1,5 @@
 export default [
   {
-    name: "Might",
-    value: 0
-  },
-  {
-    name: "Dextery",
-    value: 0
-  },
-  {
-    name: "Intelligence",
-    value: 0
-  },
-  {
-    name: "Wisdom",
-    value: 0
-  },
-  {
     name: "Hitpoint",
     value: 0
   },
