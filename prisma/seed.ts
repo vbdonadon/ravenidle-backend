@@ -81,7 +81,8 @@ async function SeedDatabase() {
       },
       update: {},
       create: {
-        name: attribute.name
+        name: attribute.name,
+        description: attribute.description
       }
     })
   })
