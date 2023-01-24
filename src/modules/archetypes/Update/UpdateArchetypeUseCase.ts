@@ -24,13 +24,17 @@ export class UpdateArchetypeUseCase {
           }
         }
       }
-    })
+    });    
 
     if (!characterExist) throw new Error('Character does not exist or was not found');
 
     if (!archetypeExist) throw new Error('Archetype does not exist or was not found');
 
     if (characterExist.character_archetypes.length >= 3) throw new Error('Character already have three archetypes');
+
+    characterExist?.character_archetypes.map(charArchetype => {
+      if (charArchetype.archetypes.id == id_archetype) throw new Error('Character already have this archetype!')
+    })
 
     const characterArchetype = await prisma.characters.update({
       where: {
