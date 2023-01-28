@@ -1,21 +1,30 @@
 import { prisma } from "../../../../database/prismaClient"
 
 interface ICreateCharacter {
-  name: string
+  name: string;
+  id_archetype: string;
 }
 
 export class CreateCharacterUseCase {
-  async execute({ name }:ICreateCharacter) {
+  async execute({ name, id_archetype }:ICreateCharacter) {
     const characterAlreadyExist = await prisma.characters.findFirst({
       where: {
         name: {
           equals: name,
           mode: "insensitive"
-        }
+        },
       }
     });
 
+    const archetypeExist = await prisma.archetypes.findFirst({
+      where: {
+        id: id_archetype
+      }
+    })
+
     if (characterAlreadyExist) throw new Error('Character name already exist!');
+
+    if (!archetypeExist) throw new Error('Archetype does not exist!')
 
     const findAllAttributesId = await prisma.attributes.findMany({
       select: {
@@ -49,6 +58,15 @@ export class CreateCharacterUseCase {
         },
         character_status: {
           create: allStatusId
+        },
+        character_archetypes: {
+          create: {
+            archetypes: {
+              connect: {
+                id: id_archetype
+              }
+            }
+          }
         }
       }
     });

@@ -18,7 +18,7 @@ model Account {
 }
 
 model Characters {
-  id         String   @id @default(uuid())
+  id         String   @id @unique @default(uuid())
   name       String
   level      Int      @default(1)
   created_at DateTime @default(now())
@@ -34,10 +34,10 @@ model CharacterArchetypes {
   id String @id @unique @default(uuid())
 
   id_character String
-  character    Characters @relation(fields: [id_character], references: [id])
+  character    Characters @relation(fields: [id_character], references: [id], onDelete: Cascade)
 
   id_archetype String
-  archetypes   Archetypes @relation(fields: [id_archetype], references: [id])
+  archetypes   Archetypes @relation(fields: [id_archetype], references: [id], onDelete: Cascade)
 
   @@map("character_archetypes")
 }
@@ -47,10 +47,10 @@ model CharacterAttributes {
   attribute_value Int    @default(0)
 
   id_character String
-  character    Characters @relation(fields: [id_character], references: [id])
+  character    Characters @relation(fields: [id_character], references: [id], onDelete: Cascade)
 
   id_attributes String
-  attributes    Attributes @relation(fields: [id_attributes], references: [id])
+  attributes    Attributes @relation(fields: [id_attributes], references: [id], onDelete: Cascade)
 
   @@map("characters_attributes")
 }
@@ -60,10 +60,10 @@ model CharacterStatus {
   status_value Int    @default(0)
 
   id_character String
-  character    Characters @relation(fields: [id_character], references: [id])
+  character    Characters @relation(fields: [id_character], references: [id], onDelete: Cascade)
 
   id_status String
-  status    Status @relation(fields: [id_status], references: [id])
+  status    Status @relation(fields: [id_status], references: [id], onDelete: Cascade)
 
   @@map("characters_status")
 }
