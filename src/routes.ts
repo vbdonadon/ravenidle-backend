@@ -6,12 +6,14 @@ import { CreateCharacterController } from "./modules/characters/useCases/Create/
 import { DeleteCharacterController } from "./modules/characters/useCases/Delete/DeleteCharacterController";
 import { FindAllCharacterController } from "./modules/characters/useCases/FindAll/FindAllCharacterController";
 import { UpdateCharacterController } from "./modules/characters/useCases/Update/UpdateCharacterController";
+import { UpdateStatusController } from "./modules/status/useCases/UpdateStatusController";
 
 const createAccountController = new CreateAccountController();
 const createCharacterController = new CreateCharacterController();
 
 const updateCharacterController = new UpdateCharacterController();
 const updateArchetypeController = new UpdateArchetypeController();
+const updateStatusController = new UpdateStatusController;
 
 const deleteCharacterController = new DeleteCharacterController();
 
@@ -22,7 +24,7 @@ const routes = Router();
 routes.post('/accounts/create', createAccountController.handle);
 routes.post('/characters/create', createCharacterController.handle);
 
-routes.put('/characters/update', updateCharacterController.handle);
+routes.put('/characters/update', updateStatusController.handle, updateCharacterController.handle);
 routes.put('/characters/update/archetype', updateArchetypeController.handle);
 
 routes.delete('/characters/delete', deleteCharacterController.handle);

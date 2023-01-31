@@ -52,7 +52,7 @@ async function SeedDatabase() {
             },
             create: {
               name: skill.archetype,
-            } 
+            }
           }
         }
       }
@@ -65,11 +65,10 @@ async function SeedDatabase() {
         name: status.name
       },
       update: {
-        value: status.value
+        name: status.name
       },
       create: {
         name: status.name,
-        value: status.value
       }
     })
   })
