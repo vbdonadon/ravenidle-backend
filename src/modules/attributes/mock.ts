@@ -1,18 +1,18 @@
 export default [
   {
-    name: "Might",  
+    name: "MIGHT",
     description: "Lorem ipsum dolor sit amet"
   },
   {
-    name: "Dextery",
+    name: "DEXTERITY",
     description: "Lorem ipsum dolor sit amet"
   },
   {
-    name: "Intelligence",
+    name: "INTELLIGENCE",
     description: "Lorem ipsum dolor sit amet"
   },
   {
-    name: "Wisdom",
+    name: "WISDOM",
     description: "Lorem ipsum dolor sit amet"
   },
 ]

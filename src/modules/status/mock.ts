@@ -1,46 +1,46 @@
 export default [
   {
-    name: "Hitpoint",
+    name: "HITPOINT",
     value: 0
   },
   {
-    name: "Manapoint",
+    name: "MANAPOINT",
     value: 0
   },
   {
-    name: "Heal Power",
+    name: "HEAL_POWER",
     value: 0
   },
   {
-    name: "Haste",
+    name: "HASTE",
     value: 0
   },
   {
-    name: "Spell Power",
+    name: "SPELL_POWER",
     value: 0
   },
   {
-    name: "Weapon Power",
+    name: "WEAPON_POWER",
     value: 0
   },
   {
-    name: "Weapon Defense",
+    name: "WEAPON_DEFENSE",
     value: 0
   },
   {
-    name: "Regeneration",
+    name: "REGENERATION",
     value: 0
   },
   {
-    name: "Spell Defense",
+    name: "SPELL DEFENSE",
     value: 0
   },
   {
-    name: "Critical Chance",
+    name: "CRITICAL_CHANCE",
     value: 0
   },
   {
-    name: "Critical Damage",
+    name: "CRITICAL_DAMAGE",
     value: 0
   },
 ]

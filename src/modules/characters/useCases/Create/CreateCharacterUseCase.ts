@@ -19,6 +19,9 @@ export class CreateCharacterUseCase {
     const archetypeExist = await prisma.archetypes.findFirst({
       where: {
         id: id_archetype
+      },
+      select: {
+        name: true
       }
     })
 
@@ -28,24 +31,28 @@ export class CreateCharacterUseCase {
 
     const findAllAttributesId = await prisma.attributes.findMany({
       select: {
-        id: true
+        id: true,
+        name: true
       }
     });
 
     const findAllStatusId = await prisma.status.findMany({
       select: {
-        id: true
+        id: true,
+        name: true
       }
     });
 
     const allAttributesId = findAllAttributesId.map(attribute => {
       return {
+        attribute_name: Object.values(attribute)[1],
         id_attributes: Object.values(attribute)[0]
       }
     })
 
     const allStatusId = findAllStatusId.map(attribute => {
       return {
+        status_name: Object.values(attribute)[1],
         id_status: Object.values(attribute)[0]
       }
     })
@@ -61,6 +68,7 @@ export class CreateCharacterUseCase {
         },
         character_archetypes: {
           create: {
+            archetype_name: archetypeExist.name,
             archetypes: {
               connect: {
                 id: id_archetype

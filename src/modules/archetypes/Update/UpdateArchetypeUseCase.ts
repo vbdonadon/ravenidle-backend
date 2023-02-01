@@ -10,6 +10,9 @@ export class UpdateArchetypeUseCase {
     const archetypeExist = await prisma.archetypes.findFirst({
       where: {
         id: id_archetype
+      },
+      select: {
+        name: true
       }
     })
 
@@ -24,7 +27,7 @@ export class UpdateArchetypeUseCase {
           }
         }
       }
-    });    
+    });
 
     if (!characterExist) throw new Error('Character does not exist or was not found');
 
@@ -43,10 +46,11 @@ export class UpdateArchetypeUseCase {
       data: {
         character_archetypes: {
           create: {
+            archetype_name: archetypeExist.name,
             archetypes: {
               connect: {
-                id: id_archetype,
-              },
+                id: id_archetype
+              }
             }
           }
         }
