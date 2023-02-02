@@ -2,10 +2,7 @@ import { prisma } from "../../../database/prismaClient"
 
 interface IUpdateStatus {
   id: string
-  id_status: string;
-  id_value: string;
 }
-
 
 export class UpdateStatusUseCase {
   async execute({ id }: IUpdateStatus) {
@@ -14,15 +11,18 @@ export class UpdateStatusUseCase {
         id,
       },
       select: {
+        level: true,
         character_status: {
           select: {
             id: true,
+            status_name: true,
             status_value: true,
           }
         },
         character_attributes: {
           select: {
             id: true,
+            attribute_name: true,
             attribute_value: true
           }
         }
@@ -34,33 +34,30 @@ export class UpdateStatusUseCase {
     const characterStatus = character.character_status;
     const characterAttributes = character.character_attributes;
 
-    // if (characterAttributes.)
+    const LEVEL = character.level;
+    const DEXTERITY = characterAttributes[0].attribute_value;
+    const WISDOM = characterAttributes[1].attribute_value;
+    const INTELLIGENCE = characterAttributes[2].attribute_value;
+    const MIGHT = characterAttributes[3].attribute_value;
 
-    // console.log('character')
-    // console.log(character)
+    const updateCharacterStatus = await prisma.characters.update({
+      where: {
+        id
+      },
+      data: {
+        character_status: {
+          update: {
+            where: {
+              status_name: "HITPOINT"
+            },
+            data: {
+              status_value: ((MIGHT * 2) + (LEVEL * 2))
+            }
+          }
+        }
+      }
+    })
 
-    // console.log('characterStatusId')
-    // console.log(characterStatusId)
-
-    // console.log('characterAttributes')
-    // console.log(characterAttributes)
-
-    // const updateCharacterStatus = await prisma.characters.update({
-    //   where: {
-    //     id
-    //   },
-    //   data: {
-    //     character_status: {
-    //       update: {
-    //         where: ,
-    //         data: {
-    //           status_value: 1
-    //         }
-    //       }
-    //     }
-    //   }
-    // })
-
-    return character
+    return updateCharacterStatus
   }
 }

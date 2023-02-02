@@ -31,8 +31,8 @@ model Characters {
 }
 
 model CharacterArchetypes {
-  id             String  @id @unique @default(uuid())
-  archetype_name String?
+  id             String @id @unique @default(uuid())
+  archetype_name String @unique
 
   id_character String
   character    Characters @relation(fields: [id_character], references: [id], onDelete: Cascade)
@@ -44,9 +44,9 @@ model CharacterArchetypes {
 }
 
 model CharacterAttributes {
-  id              String  @id @unique @default(uuid())
-  attribute_name  String?
-  attribute_value Int     @default(0)
+  id              String @id @unique @default(uuid())
+  attribute_name  String @unique
+  attribute_value Int    @default(0)
 
   id_character String
   character    Characters @relation(fields: [id_character], references: [id], onDelete: Cascade)
@@ -58,9 +58,9 @@ model CharacterAttributes {
 }
 
 model CharacterStatus {
-  id           String  @id @unique @default(uuid())
-  status_name  String?
-  status_value Int     @default(0)
+  id           String @id @unique @default(uuid())
+  status_name  String @unique
+  status_value Int    @default(0)
 
   id_character String
   character    Characters @relation(fields: [id_character], references: [id], onDelete: Cascade)

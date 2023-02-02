@@ -12,6 +12,7 @@ async function SeedDatabase() {
         name: archetype.name
       },
       update: {
+        name: archetype.name,
         description: archetype.description,
       },
       create: {
@@ -78,7 +79,10 @@ async function SeedDatabase() {
       where: {
         name: attribute.name
       },
-      update: {},
+      update: {
+        name: attribute.name,
+        description: attribute.description
+      },
       create: {
         name: attribute.name,
         description: attribute.description
