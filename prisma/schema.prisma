@@ -58,9 +58,9 @@ model CharacterAttributes {
 }
 
 model CharacterStatus {
-  id           String @id @unique @default(uuid())
-  status_name  String @unique
-  status_value Int    @default(0)
+  id           String  @id @unique @default(uuid())
+  status_name  String  @unique
+  status_value Decimal @default(0)
 
   id_character String
   character    Characters @relation(fields: [id_character], references: [id], onDelete: Cascade)

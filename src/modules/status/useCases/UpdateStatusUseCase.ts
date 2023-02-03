@@ -46,15 +46,81 @@ export class UpdateStatusUseCase {
       },
       data: {
         character_status: {
-          update: {
-            where: {
-              status_name: "HITPOINT"
+          update: [
+            {
+              where: {
+                status_name: "HITPOINT"
+              },
+              data: {
+                status_value: ((MIGHT * 2) + (LEVEL * 2))
+              }
             },
-            data: {
-              status_value: ((MIGHT * 2) + (LEVEL * 2))
-            }
-          }
-        }
+            {
+              where: {
+                status_name: "WEAPON_POWER"
+              },
+              data: {
+                status_value: (MIGHT * 1)
+              }
+            },
+            {
+              where: {
+                status_name: "MANAPOINT"
+              },
+              data: {
+                status_value: ((INTELLIGENCE * 2) + (LEVEL * 2))
+              }
+            },
+            {
+              where: {
+                status_name: "SPELL_POWER"
+              },
+              data: {
+                status_value: (INTELLIGENCE * 2)
+              }
+            },
+            {
+              where: {
+                status_name: "HEAL_POWER"
+              },
+              data: {
+                status_value: (INTELLIGENCE * 1)
+              }
+            },
+            {
+              where: {
+                status_name: "REGENERATION"
+              },
+              data: {
+                status_value: (WISDOM * 1)
+              }
+            },
+            {
+              where: {
+                status_name: "SPELL_DEFENSE"
+              },
+              data: {
+                status_value: ((WISDOM * 2) + (LEVEL * 1))
+              }
+            },
+            {
+              where: {
+                status_name: "WEAPON_DEFENSE"
+              },
+              data: {
+                status_value: ((DEXTERITY * 2) + (LEVEL * 1))
+              }
+            },
+            {
+              where: {
+                status_name: "WEAPON_DEFENSE"
+              },
+              data: {
+                status_value: ((DEXTERITY * 2) + (LEVEL * 1))
+              }
+            },
+          ]
+        },
       }
     })
 

@@ -12,10 +12,6 @@ export default [
     value: 0
   },
   {
-    name: "HASTE",
-    value: 0
-  },
-  {
     name: "SPELL_POWER",
     value: 0
   },
@@ -32,7 +28,7 @@ export default [
     value: 0
   },
   {
-    name: "SPELL DEFENSE",
+    name: "SPELL_DEFENSE",
     value: 0
   },
   {
@@ -43,4 +39,8 @@ export default [
     name: "CRITICAL_DAMAGE",
     value: 0
   },
+  {
+    name: "COOLDOWN",
+    value: 0
+  }
 ]
