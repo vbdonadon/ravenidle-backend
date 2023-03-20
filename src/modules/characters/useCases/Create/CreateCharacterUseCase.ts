@@ -46,7 +46,7 @@ export class CreateCharacterUseCase {
     const allAttributesId = findAllAttributesId.map(attribute => {
       return {
         attribute_name: Object.values(attribute)[1],
-        id_attributes: Object.values(attribute)[0]
+        id_attributes: Object.values(attribute)[0],
       }
     })
 

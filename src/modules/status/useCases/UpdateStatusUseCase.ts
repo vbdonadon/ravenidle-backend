@@ -49,30 +49,6 @@ export class UpdateStatusUseCase {
           update: [
             {
               where: {
-                status_name: "HITPOINT"
-              },
-              data: {
-                status_value: ((MIGHT * 2) + (LEVEL * 2))
-              }
-            },
-            {
-              where: {
-                status_name: "WEAPON_POWER"
-              },
-              data: {
-                status_value: (MIGHT * 1)
-              }
-            },
-            {
-              where: {
-                status_name: "MANAPOINT"
-              },
-              data: {
-                status_value: ((INTELLIGENCE * 2) + (LEVEL * 2))
-              }
-            },
-            {
-              where: {
                 status_name: "SPELL_POWER"
               },
               data: {
@@ -81,18 +57,10 @@ export class UpdateStatusUseCase {
             },
             {
               where: {
-                status_name: "HEAL_POWER"
+                status_name: "WEAPON_POWER"
               },
               data: {
-                status_value: (INTELLIGENCE * 1)
-              }
-            },
-            {
-              where: {
-                status_name: "REGENERATION"
-              },
-              data: {
-                status_value: (WISDOM * 1)
+                status_value: (MIGHT * 1)
               }
             },
             {
@@ -113,10 +81,26 @@ export class UpdateStatusUseCase {
             },
             {
               where: {
-                status_name: "WEAPON_DEFENSE"
+                status_name: "HEAL_POWER"
               },
               data: {
-                status_value: ((DEXTERITY * 2) + (LEVEL * 1))
+                status_value: (INTELLIGENCE * 1)
+              }
+            },
+            {
+              where: {
+                status_name: "MAXIMUM_HEALTH"
+              },
+              data: {
+                status_value: ((MIGHT * 2) + (LEVEL * 2))
+              }
+            },
+            {
+              where: {
+                status_name: "MAXIMUM_MANA"
+              },
+              data: {
+                status_value: ((INTELLIGENCE * 2) + (LEVEL * 2))
               }
             },
           ]
