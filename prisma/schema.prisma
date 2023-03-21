@@ -18,10 +18,13 @@ model Account {
 }
 
 model Characters {
-  id         String   @id @unique @default(uuid())
-  name       String
-  level      Int      @default(1)
-  created_at DateTime @default(now())
+  id               String   @id @unique @default(uuid())
+  name             String
+  created_at       DateTime @default(now())
+  attribute_points Int      @default(0)
+  skill_points     Int      @default(0)
+  experience       Int      @default(0)
+  level            Int      @default(1)
 
   character_attributes CharacterAttributes[]
   character_status     CharacterStatus[]
@@ -69,6 +72,12 @@ model CharacterStatus {
   status    Status @relation(fields: [id_status], references: [id], onDelete: Cascade)
 
   @@map("characters_status")
+}
+
+model Experience {
+  id       String @id @unique @default(uuid())
+  level    Int
+  required Int
 }
 
 model Attributes {

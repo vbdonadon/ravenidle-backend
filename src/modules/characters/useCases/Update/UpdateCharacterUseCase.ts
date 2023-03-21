@@ -8,11 +8,12 @@ interface IAttribute {
 interface IUpdateCharacter {
   id: string;
   level?: number;
+  available_points: number;
   attributes: IAttribute[];
 }
 
 export class UpdateCharacterUseCase {
-  async execute({ id, level, attributes }: IUpdateCharacter) {
+  async execute({ id, level, attributes, available_points }: IUpdateCharacter) {
     const characterExist = await prisma.characters.findFirst({
       where: {
         id

@@ -4,6 +4,7 @@ import defaultArchetypes from "../src/modules/archetypes/mock";
 import defaultAttributes from "../src/modules/attributes/mock";
 import defaultSkills from "../src/modules/skills/mock";
 import defaultStatus from "../src/modules/status/mock";
+import defaultExperience from "../src/modules/characters/mock"
 
 async function SeedDatabase() {
   defaultArchetypes.map(async archetype => {
@@ -86,6 +87,15 @@ async function SeedDatabase() {
       create: {
         name: attribute.name,
         description: attribute.description
+      }
+    })
+  })
+
+  defaultExperience.map(async experience => {
+    await prisma.experience.create({
+      data: {
+        level: experience.level,
+        required: experience.required
       }
     })
   })

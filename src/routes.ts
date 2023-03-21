@@ -7,12 +7,15 @@ import { DeleteCharacterController } from "./modules/characters/useCases/Delete/
 import { FindAllCharacterController } from "./modules/characters/useCases/FindAll/FindAllCharacterController";
 import { UpdateCharacterController } from "./modules/characters/useCases/Update/UpdateCharacterController";
 import { UpdateStatusController } from "./modules/status/useCases/UpdateStatusController";
+import { UpdateCharacterExperienceController } from "./modules/characters/useCases/Update/UpdateCharacterExperienceController";
 
 const createAccountController = new CreateAccountController();
 const createCharacterController = new CreateCharacterController();
 
 const updateCharacterController = new UpdateCharacterController();
+const updateCharacterExperienceController = new UpdateCharacterExperienceController();
 const updateArchetypeController = new UpdateArchetypeController();
+
 const updateStatusController = new UpdateStatusController;
 
 const deleteCharacterController = new DeleteCharacterController();
@@ -25,6 +28,7 @@ routes.post('/accounts/create', createAccountController.handle);
 routes.post('/characters/create', createCharacterController.handle);
 
 routes.put('/characters/update', updateStatusController.handle, updateCharacterController.handle);
+routes.put('/characters/update/experience', updateCharacterExperienceController.handle);
 routes.put('/characters/update/archetype', updateArchetypeController.handle);
 
 routes.delete('/characters/delete', deleteCharacterController.handle);
