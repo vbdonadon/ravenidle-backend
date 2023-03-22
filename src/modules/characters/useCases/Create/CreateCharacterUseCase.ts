@@ -29,6 +29,12 @@ export class CreateCharacterUseCase {
 
     if (!archetypeExist) throw new Error('Archetype does not exist!')
 
+    const experienceRequiredFirstLevel = await prisma.experience.findFirst({
+      where: {
+        level: 2
+      }
+    })
+
     const findAllAttributesId = await prisma.attributes.findMany({
       select: {
         id: true,
@@ -60,6 +66,7 @@ export class CreateCharacterUseCase {
     const createCharacter = await prisma.characters.create({
       data: {
         name,
+        required_experience: experienceRequiredFirstLevel?.required,
         character_attributes: {
           create: allAttributesId
         },

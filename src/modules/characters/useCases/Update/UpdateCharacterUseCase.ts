@@ -13,7 +13,7 @@ interface IUpdateCharacter {
 }
 
 export class UpdateCharacterUseCase {
-  async execute({ id, level, attributes, available_points }: IUpdateCharacter) {
+  async execute({ id, level, attributes }: IUpdateCharacter) {
     const characterExist = await prisma.characters.findFirst({
       where: {
         id
@@ -21,6 +21,10 @@ export class UpdateCharacterUseCase {
       select: {
         name: true,
         level: true,
+        current_experience: true,
+        required_experience: true,
+        attribute_points: true,
+        skill_points: true,
         created_at: true,
         character_attributes: {
           select: {

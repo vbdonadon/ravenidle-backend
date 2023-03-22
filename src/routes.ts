@@ -7,7 +7,7 @@ import { DeleteCharacterController } from "./modules/characters/useCases/Delete/
 import { FindAllCharacterController } from "./modules/characters/useCases/FindAll/FindAllCharacterController";
 import { UpdateCharacterController } from "./modules/characters/useCases/Update/UpdateCharacterController";
 import { UpdateStatusController } from "./modules/status/useCases/UpdateStatusController";
-import { UpdateCharacterExperienceController } from "./modules/characters/useCases/Update/UpdateCharacterExperienceController";
+import { UpdateCharacterExperienceController } from "./modules/characters/useCases/Update/Level/UpdateCharacterExperienceController";
 
 const createAccountController = new CreateAccountController();
 const createCharacterController = new CreateCharacterController();

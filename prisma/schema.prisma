@@ -18,13 +18,14 @@ model Account {
 }
 
 model Characters {
-  id               String   @id @unique @default(uuid())
-  name             String
-  created_at       DateTime @default(now())
-  attribute_points Int      @default(0)
-  skill_points     Int      @default(0)
-  experience       Int      @default(0)
-  level            Int      @default(1)
+  id                  String   @id @unique @default(uuid())
+  name                String
+  created_at          DateTime @default(now())
+  current_experience  Int      @default(0)
+  required_experience Int      @default(0)
+  level               Int      @default(1)
+  attribute_points    Int      @default(0)
+  skill_points        Int      @default(0)
 
   character_attributes CharacterAttributes[]
   character_status     CharacterStatus[]
