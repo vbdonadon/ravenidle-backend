@@ -7,6 +7,10 @@ export class FindAllCharacterUseCase {
         id: true,
         name: true,
         level: true,
+        current_experience: true,
+        required_experience: true,
+        skill_points: true,
+        attribute_points: true,
         character_attributes: {
           select: {
             id: true,

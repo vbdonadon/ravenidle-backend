@@ -29,42 +29,28 @@ export class UpdateCharacterExperienceUseCase {
     const characterCurrentAttribute = characterExist.attribute_points;
 
     const experienceTable = await prisma.experience.findMany();
-    const characterNewLevel = experienceTable.find(value => value.required >= characterNewCurrentExperience);
+    const experienceTableSorted = experienceTable.sort(function (a, b) {
+      if (a.level > b.level) {
+        return 1;
+      }
+      if (a.level < b.level) {
+        return -1;
+      }
+      return 0;
+    });
 
-    const characterNewCurrentLevel = characterNewLevel && (characterNewLevel?.level - 1) || characterCurrentLevel
+    const characterNewLevel = experienceTableSorted.find(value => value.required >= characterNewCurrentExperience);
     const differenceOfLevel = characterNewLevel && (characterNewLevel?.level - characterCurrentLevel) || 0
-
-    console.log(`characterExist`)
-    console.log(characterExist)
-    console.log(``)
-    console.log(`characterCurrentExperience`)
-    console.log(characterCurrentExperience)
-    console.log(``)
-    console.log(`characterNewCurrentExperience`)
-    console.log(characterNewCurrentExperience)
-    console.log(``)
-    console.log(`characterCurrentLevel`)
-    console.log(characterCurrentLevel)
-    console.log(``)
-    console.log(`characterCurrentAttribute`)
-    console.log(characterCurrentAttribute)
-    console.log(``)
-    console.log(`characterNewLevel`)
-    console.log(characterNewLevel)
-    console.log(``)
-    console.log(`differenceOfLevel`)
-    console.log(differenceOfLevel)
-
 
     const updateCharacterExperience = await prisma.characters.update({
       where: {
         id
       },
       data: {
-        level: characterNewCurrentLevel,
+        level: characterNewLevel?.level,
         current_experience: characterNewCurrentExperience,
         required_experience: characterNewLevel?.required,
-        // attribute_points: characterCurrentAttribute + differenceOfLevel
+        attribute_points: characterCurrentAttribute + differenceOfLevel
       }
     })
 
