@@ -15,6 +15,7 @@ export class FindAllCharacterUseCase {
           select: {
             id: true,
             attribute_value: true,
+            attribute_name: true,
             attributes: true
           },
         },

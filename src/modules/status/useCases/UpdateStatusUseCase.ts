@@ -100,7 +100,7 @@ export class UpdateStatusUseCase {
                 status_name: "MAXIMUM_MANA"
               },
               data: {
-                status_value: ((INTELLIGENCE * 2) + (LEVEL * 2))
+                status_value: ((INTELLIGENCE * 2) + (LEVEL * 20))
               }
             },
           ]
