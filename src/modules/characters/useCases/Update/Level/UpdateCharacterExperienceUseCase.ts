@@ -50,7 +50,7 @@ export class UpdateCharacterExperienceUseCase {
         level: characterNewLevel?.level,
         current_experience: characterNewCurrentExperience,
         required_experience: characterNewLevel?.required,
-        attribute_points: characterCurrentAttribute + differenceOfLevel
+        attribute_points: characterCurrentAttribute + (differenceOfLevel * 2)
       }
     })
 

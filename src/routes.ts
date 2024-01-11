@@ -27,7 +27,7 @@ const routes = Router();
 routes.post('/accounts/create', createAccountController.handle);
 routes.post('/characters/create', createCharacterController.handle);
 
-routes.put('/characters/update/attribute', updateCharacterAttributeController.handle);
+routes.put('/characters/update/attribute', updateStatusController.handle, updateCharacterAttributeController.handle);
 routes.put('/characters/update/experience', updateCharacterExperienceController.handle);
 routes.put('/characters/update/archetype', updateArchetypeController.handle);
 

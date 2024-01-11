@@ -52,7 +52,7 @@ export class UpdateStatusUseCase {
                 status_name: "SPELL_POWER"
               },
               data: {
-                status_value: (INTELLIGENCE * 2)
+                status_value: ((INTELLIGENCE * 0.5) + (LEVEL * 1))
               }
             },
             {
@@ -60,7 +60,7 @@ export class UpdateStatusUseCase {
                 status_name: "WEAPON_POWER"
               },
               data: {
-                status_value: (MIGHT * 1)
+                status_value: ((MIGHT * 0.5) + (LEVEL * 1))
               }
             },
             {
@@ -68,7 +68,7 @@ export class UpdateStatusUseCase {
                 status_name: "SPELL_DEFENSE"
               },
               data: {
-                status_value: ((WISDOM * 2) + (LEVEL * 1))
+                status_value: ((WISDOM * 0.5) + (LEVEL * 1))
               }
             },
             {
@@ -76,7 +76,7 @@ export class UpdateStatusUseCase {
                 status_name: "WEAPON_DEFENSE"
               },
               data: {
-                status_value: ((DEXTERITY * 2) + (LEVEL * 1))
+                status_value: ((DEXTERITY * 0.5) + (LEVEL * 1))
               }
             },
             {
@@ -84,7 +84,7 @@ export class UpdateStatusUseCase {
                 status_name: "HEAL_POWER"
               },
               data: {
-                status_value: (INTELLIGENCE * 1)
+                status_value: ((INTELLIGENCE * 0.5) + (LEVEL * 1))
               }
             },
             {
@@ -92,7 +92,7 @@ export class UpdateStatusUseCase {
                 status_name: "MAXIMUM_HEALTH"
               },
               data: {
-                status_value: ((MIGHT * 2) + (LEVEL * 2))
+                status_value: ((MIGHT * 10) + (LEVEL * 80))
               }
             },
             {
@@ -100,7 +100,7 @@ export class UpdateStatusUseCase {
                 status_name: "MAXIMUM_MANA"
               },
               data: {
-                status_value: ((INTELLIGENCE * 2) + (LEVEL * 20))
+                status_value: ((INTELLIGENCE * 10) + (LEVEL * 30))
               }
             },
           ]

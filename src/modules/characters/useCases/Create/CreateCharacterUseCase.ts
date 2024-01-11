@@ -66,7 +66,7 @@ export class CreateCharacterUseCase {
     const createCharacter = await prisma.characters.create({
       data: {
         name,
-        attribute_points: 1,
+        attribute_points: 0,
         required_experience: experienceRequiredFirstLevel?.required,
         character_attributes: {
           create: allAttributesId
