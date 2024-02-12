@@ -3,7 +3,7 @@ export default [
     name: "Celerity",
     type: "Passive",
     archetype: "SPIRITUAL",
-    description: "Reduz o tempo de recarga de todas as magias em 10%."
+    description: "Reduz o tempo de recarga de todas as magias em 10%.",
   },
   {
     name: "Healing Bond",

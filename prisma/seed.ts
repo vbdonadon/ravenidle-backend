@@ -5,8 +5,31 @@ import defaultAttributes from "../src/modules/attributes/mock";
 import defaultSkills from "../src/modules/skills/mock";
 import defaultStatus from "../src/modules/status/mock";
 import defaultExperience from "../src/modules/characters/mock"
+import defaultMonsters from "../src/modules/monsters/mock"
 
 async function SeedDatabase() {
+  defaultMonsters.map(async monster => {
+    await prisma.monsters.upsert({
+      where: {
+        name: monster.name
+      },
+      update: {
+        name: monster.name,
+        category: monster.category,
+        level: monster.level,
+        attack: monster.attack,
+        defense: monster.defense
+      },
+      create: {
+        name: monster.name,
+        category: monster.category,
+        level: monster.level,
+        attack: monster.attack,
+        defense: monster.defense
+      }
+    })
+  })
+
   defaultArchetypes.map(async archetype => {
     await prisma.archetypes.upsert({
       where: {

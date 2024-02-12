@@ -1,18 +1,22 @@
 export default [
   {
     name: "MIGHT",
-    description: "Lorem ipsum dolor sit amet"
+    description: "Increases Weapon Power and Weapon Defense"
   },
   {
     name: "DEXTERITY",
-    description: "Lorem ipsum dolor sit amet"
+    description: "Increases Haste, Spell Defense, and Weapon Defense"
   },
   {
     name: "INTELLIGENCE",
-    description: "Lorem ipsum dolor sit amet"
+    description: "Increases Spell Power and Healing Power"
   },
   {
     name: "WISDOM",
-    description: "Lorem ipsum dolor sit amet"
+    description: "Increases Spell Defense, Mana Regeneration, Maximum Mana, and Healing Power"
+  },
+  {
+    name: "VITALLITY",
+    description: "Increases Maximum Health, Health Regeneration, Spell Defense, and Weapon Defense"
   },
 ]

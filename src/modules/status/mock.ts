@@ -16,7 +16,7 @@ export default [
     value: 0
   },
   {
-    name: "HEAL_POWER",
+    name: "HEALLING_POWER",
     value: 0
   },
   {
@@ -25,6 +25,26 @@ export default [
   },
   {
     name: "MAXIMUM_MANA",
+    value: 0
+  },
+  {
+    name: "HEALTH_REGENERATION",
+    value: 0
+  },
+  {
+    name: "MANA_REGENERATION",
+    value: 0
+  },
+  {
+    name: "PRECISION",
+    value: 0
+  },
+  {
+    name: "IMPACT",
+    value: 0
+  },
+  {
+    name: "HASTE",
     value: 0
   },
 ]
